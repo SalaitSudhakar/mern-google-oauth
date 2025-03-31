@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,7 +17,7 @@ const SignUp = () => {
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch("http://localhost:5000/api/auth/signup", {
+      const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -29,6 +30,7 @@ const SignUp = () => {
       }
 
       setIsLoading(false);
+      navigate('/signin')
     } catch (error) {
       setIsLoading(false);
       setError("Something went wrong. Please try again");
@@ -79,7 +81,7 @@ const SignUp = () => {
           disabled={isLoading}
           className="group text-semibold bg-gradient-to-br from-teal-400 to-teal-700 p-3 rounded-full text-white transition-all duration-100 border-2 uppercase disabled:opacity-50 disabled:pointer-events-none hover:bg-gradient-to-br hover:from-white hover:to-transparent hover:border-teal-700 hover:text-teal-700"
         >
-          {isLoading ? "Loading..." : "Sign UP"}
+          {isLoading ? "Loading..." : "Sign Up"}
         </button>
       </form>
 

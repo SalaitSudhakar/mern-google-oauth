@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Profile from "./Pages/Profile";
-import Signin from "./Pages/Signin";
+import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import Header from "./Components/Header";
 import './App.css'
@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
