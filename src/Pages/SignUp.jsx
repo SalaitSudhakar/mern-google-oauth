@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../Components/OAuth";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -79,10 +80,13 @@ const SignUp = () => {
 
         <button
           disabled={isLoading}
-          className="group text-semibold bg-gradient-to-br from-teal-400 to-teal-700 p-3 rounded-full text-white transition-all duration-100 border-2 uppercase disabled:opacity-50 disabled:pointer-events-none hover:bg-gradient-to-br hover:from-white hover:to-transparent hover:border-teal-700 hover:text-teal-700"
+          className="group text-semibold bg-gradient-to-br from-teal-400 to-teal-700 p-3 rounded-full text-white transition-all duration-100 border-2 uppercase disabled:opacity-50 disabled:pointer-events-none hover:from-teal-300 hover:to-teal-500 "
         >
           {isLoading ? "Loading..." : "Sign Up"}
         </button>
+
+        {"-------- or ---------"}
+        <OAuth />
       </form>
 
       <div className="flex gap-2 mt-2 justify-center">
