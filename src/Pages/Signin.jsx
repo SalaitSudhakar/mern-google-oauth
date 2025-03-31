@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({});
-  const { isLoading, error } = useSelector((state) => state.user);
-  console.log(isLoading, error)
+  const { isLoading, error } = useSelector((state) => state?.user || {});
+  console.log(isLoading, error);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -74,7 +74,7 @@ const SignIn = () => {
 
         {error && (
           <p className="text-red-700 text-sm -mb-4">
-            {error  ? error.message || "Something went wrong!" : ''}
+            {error ? error.message || "Something went wrong!" : ""}
           </p>
         )}
 
