@@ -17,9 +17,6 @@ const Header = () => {
           <Link to="/">
             <li className="hover:text-emerald-500">Home</li>
           </Link>
-          <Link to="/about">
-            <li className="hover:text-emerald-500">About</li>
-          </Link>
           {currentUser ? (
             <Link to="/profile"><img src={currentUser.data.profile} alt='profile' className="h-7 w-7 rounded-full object-cover"/></Link>
           ) : (
