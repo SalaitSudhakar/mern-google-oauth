@@ -16,24 +16,25 @@ const OAuth = () => {
 
       const result = await signInWithPopup(auth, provider);
 
-      console.log(result.user.displayName, result.user.email, result.user.photoURL )
-      const response = await fetch( `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: result.user.displayName,
-          email: result.user.email,
-          photo: result.user.photoURL,
-        }),
-        credentials: "include",
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: result.user.displayName,
+            email: result.user.email,
+            photo: result.user.photoURL,
+          }),
+          credentials: "include",
+        }
+      );
 
       const data = await response.json();
-      console.log(data)
       dispatch(signInSuccess(data));
-      navigate("/")
+      navigate("/");
     } catch (error) {
       console.log("Could not Login with Google: " + error);
     }

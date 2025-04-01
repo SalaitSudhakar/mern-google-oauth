@@ -11,6 +11,7 @@ import PrivateRoute from "./Components/PrivateRoute";
 const App = () => {
   return (
     <BrowserRouter>
+      
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

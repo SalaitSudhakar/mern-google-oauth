@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../Components/OAuth";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({});
@@ -40,6 +41,11 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Sign Up - Auth App</title>
+    </Helmet>
+    
     <div className="p-3 py-7 max-w-xl mx-auto text-center">
       <h1 className="text-3xl text-teal-700 text-center font-semibold ">
         Sign Up
@@ -98,6 +104,7 @@ const SignUp = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
