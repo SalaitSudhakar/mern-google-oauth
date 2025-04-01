@@ -12,7 +12,7 @@ A React frontend for a MERN stack application with Google OAuth authentication.
 ## Create a `.env` file with
 
 ```
-VITE_BACKEND_URL=http://localhost:5000
+VITE_BACKEND_URL=http://localhost:5000 || your_backend_deployed_url
 VITE_FIREBASE_API_KEY=your_firebase_google_client_api_key
 ```
 
