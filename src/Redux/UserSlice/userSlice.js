@@ -24,18 +24,20 @@ const userSlice = createSlice({
     },
     updateUserStart: (state) => {
       state.isLoading = true;
+      state.error = false;
     },
     updateUserSuccess: (state, action) => {
       state.currentUser = action.payload;
       state.isLoading = false;
       state.error = false;
     },
-    updateUserFailure: (state, action){
+    updateUserFailure: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     },
     deleteUserStart: (state) => {
       state.isLoadingoading = true;
+      state.error = false;
     },
     deleteUserSuccess: (state) => {
       state.currentUser = null;

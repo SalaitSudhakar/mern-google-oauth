@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
 
+
   return (
     <div className="bg-teal-700 text-white py-4 px-2 sm:px-4 ">
       <div className="flex justify-between items-center max-w-6xl mx-auto">
