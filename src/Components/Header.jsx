@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
 
+  console.log(currentUser.user.profile)
 
   return (
     <div className="bg-teal-700 text-white py-4 px-2 sm:px-4 ">
@@ -19,7 +20,7 @@ const Header = () => {
             <li className="hover:text-emerald-500">Home</li>
           </Link>
           {currentUser ? (
-            <Link to="/profile"><img src={currentUser.data.profile} alt='profile' className="h-7 w-7 rounded-full object-cover"/></Link>
+            <Link to="/profile"><img src={currentUser?.user?.profile} alt='profile' className="h-7 w-7 rounded-full object-cover"/></Link>
           ) : (
             <Link to="/signin">
               <li className="hover:text-emerald-500">Sign-In</li>

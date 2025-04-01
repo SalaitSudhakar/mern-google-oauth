@@ -13,9 +13,9 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { isLoading, currentUser, error } = useSelector((state) => state.user);
-  const defaultImage = currentUser.data.profile;
-  const defaultUsername = currentUser.data.username;
-  const defaultEmail = currentUser.data.email;
+  const defaultImage = currentUser?.user?.profile;
+  const defaultUsername = currentUser?.user?.username;
+  const defaultEmail = currentUser?.user?.email;
 
   console.log(currentUser);
   
@@ -23,8 +23,8 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const [image, setImage] = useState(null);
-  const [username, setUsername] = useState(currentUser.data.username);
-  const [email, setEmail] = useState(currentUser.data.email);
+  const [username, setUsername] = useState(currentUser?.user?.username);
+  const [email, setEmail] = useState(currentUser?.user?.email);
   const [password, setPassword] = useState("");
 
   const [updateSuccess, setUpdateSuccess] = useState(false);
@@ -60,7 +60,7 @@ const Profile = () => {
       console.log("API triggered");
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/user/update/${
-          currentUser.data._id
+          currentUser?.user?._id
         }`,
         {
           method: "PUT",
@@ -91,7 +91,7 @@ const Profile = () => {
       dispatch(deleteUserStart());
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/user/delete/${
-          currentUser.data._id
+          currentUser?.user?._id
         }`,
         {
           method: "DELETE",
@@ -141,7 +141,7 @@ const Profile = () => {
           src={
             image
               ? URL.createObjectURL(image)
-              : currentUser.data.profile || defaultImage
+              : currentUser?.user?.profile || defaultImage
           }
           alt="profile"
           onClick={() => fileRef.current.click()}
@@ -172,7 +172,7 @@ const Profile = () => {
           className="bg-teal-100 rounded-lg p-3"
         />
         {error && (
-          <p className="text-red-700 mt-3 text-center"> {error.message} </p>
+          <p className="text-red-700 mt-3 text-center"> {error?.message} </p>
         )}
         {updateSuccess && (
           <p className="text-green-700 mt-5">User updated successfully!</p>
